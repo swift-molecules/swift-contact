@@ -15,19 +15,19 @@ let package = Package(
         .library(name: "Contact", targets: ["Contact"])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main")
     ],
     targets: [
         .target(
             name: "Contact",
             dependencies: [
-                .product(name: "Numeric", package: "swift-numeric"),
+                .product(name: "Numeric", package: "swift-numeric")
             ]
         ),
         .testTarget(
             name: "Contact Tests",
             dependencies: [
-                .target(name: "Contact"),
+                .target(name: "Contact")
             ]
         ),
     ],

@@ -1,0 +1,8 @@
+description: "A contact law for Swift: a one-sided spring whose push grows as a power of how far it is pressed, with the energy it stores."
+topics:
+  - acoustics
+  - physical-modelling
+  - audio
+homepage: "https://swift-institute.org"
+readme:
+  family: E

@@ -1,4 +1,4 @@
-internal import Numeric
+public import Numeric
 
 /// A one-sided spring: no force until pressed, then `stiffness × pressedᵉˣᵖᵒⁿᵉⁿᵗ`.
 public struct Contact: Hashable, Sendable {
@@ -12,6 +12,7 @@ public struct Contact: Hashable, Sendable {
 }
 
 extension Contact {
+    @inlinable
     public func force(pressed compression: Double) -> Double {
         guard compression > 0 else { return 0 }
         if exponent == 1 { return stiffness * compression }
@@ -20,6 +21,7 @@ extension Contact {
         return stiffness * Double.math.pow(compression, exponent)
     }
 
+    @inlinable
     public func energy(pressed compression: Double) -> Double {
         guard compression > 0 else { return 0 }
         if exponent == 1 { return stiffness * compression * compression / 2 }
@@ -32,8 +34,8 @@ extension Contact {
     ///
     /// The push is the change of stored energy over the change of place across two steps, so what the point loses the
     /// store gains exactly. `slack` is how far one unit of force moves the point in a step.
-    @usableFromInline
-    static func settle(
+    @inlinable
+    public static func settle(
         from last: Double,
         toward free: Double,
         slack: Double,

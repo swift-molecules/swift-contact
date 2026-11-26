@@ -2,9 +2,9 @@ extension Contact {
     /// An elastic, isotropic body's stiffness as a contact sees it: its Young's modulus and Poisson's ratio.
     public struct Elastic: Hashable, Sendable {
         public var young: Modulus.Young.Value<Double>
-        public var poisson: Poisson.Value<Double>
+        public var poisson: Strain.Ratio.Value<Double>
 
-        public init(young: Modulus.Young.Value<Double>, poisson: Poisson.Value<Double>) {
+        public init(young: Modulus.Young.Value<Double>, poisson: Strain.Ratio.Value<Double>) {
             self.young = young
             self.poisson = poisson
         }

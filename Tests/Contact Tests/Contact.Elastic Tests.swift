@@ -3,8 +3,8 @@ import Numeric
 import Testing
 
 @Suite struct `Contact.Elastic Tests` {
-    let steel = Contact.Elastic(young: Modulus.Young.pascals(210e9), poisson: Poisson.amount(0.3))
-    let glass = Contact.Elastic(young: Modulus.Young.pascals(72e9), poisson: Poisson.amount(0.22))
+    let steel = Contact.Elastic(young: Modulus.Young.pascals(210e9), poisson: Strain.Ratio.amount(0.3))
+    let glass = Contact.Elastic(young: Modulus.Young.pascals(72e9), poisson: Strain.Ratio.amount(0.22))
 
     @Test func `the contact modulus adds the two compliances`() {
         let expected = 1 / ((1 - 0.09) / 210e9 + (1 - 0.0484) / 72e9)
